@@ -1,0 +1,28 @@
+{
+  "name": "challenge-10-team-profile-generator",
+  "version": "1.0.0",
+  "description": "The challenge is to build a Node.js command-line application that takes information about a software engineering team to generate a webpage of summaries on each team member.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tlcoles/Challenge-10-Team-Profile-Generator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tlcoles/Challenge-10-Team-Profile-Generator/issues"
+  },
+  "homepage": "https://github.com/tlcoles/Challenge-10-Team-Profile-Generator#readme",
+  "dependencies": {
+    "inquirer": "^8.2.4",
+    "jest": "^28.1.3"
+  }
+}
