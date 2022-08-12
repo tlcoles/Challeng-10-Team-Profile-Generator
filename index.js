@@ -12,4 +12,4 @@ const Binja = new Engineer ("Binja", 2, "binja@fauxco.de")
 const Tamara = new Manager ("Tamara", 1, "tamara@fauxco.de", 1)
 
 // Create the index file and append the results with flag:a 
-writeFileSync("./dist/index.html",`Here is the result: ${Binja}, ${Tamara}`, {flag: "a"})
+writeFileSync("./dist/index.html",`Here is the result: ${Binja}, ${Tamara}`, {flag: "a"});
