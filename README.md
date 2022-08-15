@@ -6,11 +6,11 @@ The challenge is to build a Node.js command-line application that takes informat
 **image to be inserted here**
 
 ## Table of Contents
-[Installation](#installation)
-[Usage](#usage)
-[License](#license)
-[Contributing](#contributing)
-[Questions](#questions)
+[Installation](#installation)  
+[Usage](#usage)  
+[License](#license)  
+[Contributing](#contributing)  
+[Questions](#questions)  
 
 ## Installation
 
