@@ -13,6 +13,7 @@ The challenge is to build a Node.js command-line application that takes informat
 [Questions](#questions)  
 
 ## Installation
+This project uses node, inquirer, jest, as well as HTML and CSS
 
 ## Usage
 
@@ -27,6 +28,11 @@ The challenge is to build a Node.js command-line application that takes informat
 * Icons8.com for [generic head profile image](https://icons8.com/icon/set/profile/ios-filled)
 
 ## Tests
+I created 5 random persons to create JEST tests. See the details in the following files:  
+* Employee.test.js  
+* Engineer.test.js  
+* Intern.test.js  
+* Manager.test.js  
 
 ## Questions
 Tammi L. Coles  
