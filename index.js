@@ -49,8 +49,6 @@ async function askQs() {
         },
     ]
 
-    const managerQ = 0    //! assign OfficeNumber as a numeric value
-
     var enteringData = true;
     var employeeData = [];
 
@@ -119,19 +117,36 @@ async function askQs() {
         console.info ("We expect this to display after the prompts")
         console.info (newEmployee)
         console.info (employeeData)
-    }
+    } 
+    return employeeData;
 }
 
-askQs();
+function createHTML (employeeData) {
+    let html = `<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+        <title>Our FauxCo.de Team</title>
+    </head>
+    <body>
+        <p>${JSON.stringify(employeeData)}</p>
+        <!-- Bootstrap JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    </body>
+    </html>`
+    
+    return html;
 
+}
 
+async function displayData () {
+    const employeeData = await askQs();
+    console.info(employeeData)
+    writeFileSync("./dist/index.html", createHTML(employeeData));  // Create the index file and append , {flag: "a"} the results with flag:a 
+}
 
-
-
-// Create the index file and append the results with flag:a 
-// writeFileSync("./dist/index.html", {flag: "a"});
-
-
-
-
-//! function createHTML(data){
+displayData();
