@@ -96,28 +96,28 @@ while (newEmployee) {
 
     const newEmployee = await inquirer
     .prompt (basicQs)
-    // if (newEmployee.role === "Manager") {
-    //     let officeNumber = officeNumber++
-    // } else if (newEmployee.role === "Engineer") {
-    //     inquirer.prompt (
-    //         {
-    //         type: 'input',
-    //         name: 'github',
-    //         message: 'What is their GitHub username?',
-    //         when: newEmployee,
-    //         }
-    //     )
-    // } else { // defaults to Intern
-    //     inquirer.prompt (
-    //         {
-    //         type: 'input',
-    //         name: 'school',
-    //         message: 'What university are they attending?',
-    //         default: 'ESMT Berlin',
-    //         when: newEmployee,
-    //         }
-    //     )
-    // }
+    if (newEmployee.role === "Manager") {
+        let officeNumber = officeNumber++
+    } else if (newEmployee.role === "Engineer") {
+        inquirer.prompt (
+            {
+            type: 'input',
+            name: 'github',
+            message: 'What is their GitHub username?',
+            when: newEmployee,
+            }
+        )
+    } else { // defaults to Intern
+        inquirer.prompt (
+            {
+            type: 'input',
+            name: 'school',
+            message: 'What university are they attending?',
+            default: 'ESMT Berlin',
+            when: newEmployee,
+            }
+        )
+    }
 
     employeeData.push (
         {
