@@ -22,10 +22,11 @@ The challenge is to build a Node.js command-line application that takes informat
 ## Contributing
 * Benawad for [How to make a CLI in Node.js with Inquirer](https://youtu.be/0xjfkl9nODQ)
 * John Smilga for [Node.js and Express.js - Full Course](https://youtu.be/Oe421EPjeBE) 
+* David Micheau for the example of "when" in Inquirer question ["multiple questions with same name, hydrating an array as answer"](https://github.com/SBoudrias/Inquirer.js/issues/1086)
 
 ## Tests
 
 ## Questions
-Tammi L. Coles 
+Tammi L. Coles  
 GitHub repository  
 Live application  
