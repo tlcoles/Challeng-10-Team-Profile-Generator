@@ -118,22 +118,57 @@ async function askQs() {
 }
 
 function createMember (employeeData) {
-    let memberDiv = `<!-- Team member -->
-    <div class="col-xl-3 col-sm-6 mb-5">
-        <div class="bg-white rounded shadow-sm py-5 px-4"><img src="../dist/icons8-head-profile-64.png" alt="profile icon" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
-            <h5 class="mb-0">${newEmployee.name}</h5><span class="small text-uppercase text-muted">${newEmployee.role}</span>
-                <ul class="social mb-0 list-inline mt-3">
-                    <li class="list-inline-item"><a href="#"><i class="fa-solid fa-envelope"></i></a> ${newEmployee.email}</li>
-                    <li class="list-inline-item"><a href="#"><i class="fa-solid fa-building"></i></a> ${newEmployee.office}</li>
-                    <li class="list-inline-item"><a href="#"><i class="fa-brands fa-github"></i></a>${newEmployee.github}</li>
-                    <li class="list-inline-item"><a href="#"><i class="fa-solid fa-graduation-cap"></i></a> ${newEmployee.school}</li>
-                  </ul>
+    const renderedEmployees = employeeData.map(function(employee) {
+        return `<!-- Team member -->
+        <div class="col-xl-3 col-sm-6 mb-5">
+            <div class="bg-white rounded shadow-sm py-5 px-4"><img src="../dist/icons8-head-profile-64.png" alt="profile icon" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+                <h5 class="mb-0">${employee.name}</h5><span class="small text-uppercase text-muted">${employee.role}</span>
+                    <ul class="social mb-0 list-inline mt-3">
+                        ${renderEmail(employee)}
+                        <li class="list-inline-item"><a href="#"><i class="fa-solid fa-building"></i></a> ${employee.office}</li>
+                        ${renderGitHub(employee)}
+                        <li class="list-inline-item"><a href="#"><i class="fa-solid fa-graduation-cap"></i></a> ${employee.school}</li>
+                      </ul>
+            </div>
         </div>
-    </div><!-- End -->`
-    return memberDiv;
+        <!-- End -->
+        `;
+    });
+    const result = renderedEmployees.join("\n")
+
+    return result;
 }
 
-function createHTML(memberDiv) {
+function renderEmail(employee) {
+    if (employee.email) {
+        return `
+            <li class="list-inline-item">
+                <a href="mailto:${employee.email}">
+                    <i class="fa-solid fa-envelope"></i>
+                    ${employee.email}
+                </a> 
+            </li>`
+    }
+
+    return ""
+}
+
+function renderGitHub(employee) {
+    if (employee.github) {
+        return `
+            <li class="list-inline-item">
+                <a href="https://github.com/${employee.github}">
+                    <i class="fa-brands fa-github"></i>
+                    ${employee.github}
+                 </a>
+            </li>`
+    }
+    return ""
+}
+
+// create functions for rendering office, github, school
+
+function createHTML(content) {
     let html = `<!DOCTYPE html>
     <html lang="en">
     <head>
@@ -160,7 +195,7 @@ function createHTML(memberDiv) {
         </div>
     </div>
     <!-- END page header section -->
-    ${memberDiv}
+    ${content}
     <!-- START profile div -->
     <div class="container">
         <!-- START insert of teamMember div -->
@@ -173,12 +208,25 @@ function createHTML(memberDiv) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
         </body>
     </html>`
+
+    return html;
 }
 
 async function displayData () {
     const employeeData = await askQs();
-    console.info(employeeData)
-    writeFileSync("./dist/index.html", "test")  // Create the index file and append the results with {flag: "a"}
+    const content = createMember(employeeData);
+    console.log("content", content);
+
+    const label = undefined;
+
+    if (label) {
+        console.log("Something");
+    }
+
+    const html = createHTML(content);
+
+    // Create the index file and append the results with {flag: "a"}
+    writeFileSync("./dist/index.html", html)
 }
 
 displayData();
