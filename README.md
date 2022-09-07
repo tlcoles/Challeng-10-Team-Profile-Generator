@@ -35,4 +35,4 @@ I created 5 random persons to create JEST tests. See the details in the followin
 
 ## Contact
 Tammi L. Coles [@tlcoles](https://github.com/tlcoles/)  
-GitHub repository: https://github.com/tlcoles/Challenge-10-Team-Profile-Generator 
+GitHub repository: [https://github.com/tlcoles/Challenge-10-Team-Profile-Generator](https://github.com/tlcoles/Challenge-10-Team-Profile-Generator)
