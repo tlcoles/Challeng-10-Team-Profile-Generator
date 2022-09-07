@@ -139,7 +139,6 @@ async function askQs() {
             school: newEmployee.school,
             }
         )
-        console.info (newEmployee)
         console.info (employeeData)
     } 
     return employeeData;
