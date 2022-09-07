@@ -6,8 +6,8 @@ The challenge is to build a Node.js command-line application that takes informat
 ## Screenshots and video
 
 ## Table of Contents
-[Installation](#installation) 
-[Tests](#tests) 
+[Installation](#installation)  
+[Tests](#tests)  
 [License](#license)  
 [Gratitude](#gratitude)  
 [Contact](#contact)  
