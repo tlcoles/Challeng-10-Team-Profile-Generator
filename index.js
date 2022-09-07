@@ -32,7 +32,16 @@ async function askQs() {
         type: 'input',
         name: 'id',
         message: 'What is their employee ID number?',
-        // ...validateNumbers(), // create a function to validate numbers and use here
+        default: () => {},
+        validate: function (id) {
+            valid = /^\d+$/.test(id)
+                if (valid) {
+                  return true;
+              } else {
+                  console.log(" is invalid.  Please enter a valid number.")
+                  return false;
+              }
+          },
         },
         {
         type: 'input',
@@ -42,10 +51,9 @@ async function askQs() {
         validate: function (email) {
             valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
                 if (valid) {
-                console.log("Great job");
                   return true;
               } else {
-                  console.log(".  Please enter a valid email")
+                  console.log(" is invalid.  Please enter a valid email.")
                   return false;
               }
           },
@@ -87,6 +95,15 @@ async function askQs() {
                 type: 'input',
                 name: 'office',
                 message: 'What is their office number?',
+                validate: function (office) {
+                    valid = /^\d+$/.test(office)
+                        if (valid) {
+                          return true;
+                      } else {
+                          console.log(" is invalid.  Please enter a number.")
+                          return false;
+                      }
+                  },
                 }
             )
             newEmployee.office = officeAnswer.office // without this line, the answer is not attached to newEmployee
