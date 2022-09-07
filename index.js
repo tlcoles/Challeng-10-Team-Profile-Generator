@@ -125,7 +125,7 @@ function createMember (employeeData) {
                 <h5 class="mb-0">${employee.name}</h5><span class="small text-uppercase text-muted">${employee.role}</span>
                     <ul class="social mb-0 list-inline mt-3">
                         ${renderEmail(employee)}
-                        <li class="list-inline-item"><a href="#"><i class="fa-solid fa-building"></i></a> ${employee.office}</li>
+                        ${renderOffice(employee)}
                         ${renderGitHub(employee)}
                         <li class="list-inline-item"><a href="#"><i class="fa-solid fa-graduation-cap"></i></a> ${employee.school}</li>
                       </ul>
@@ -138,6 +138,7 @@ function createMember (employeeData) {
 
     return result;
 }
+
 
 function renderEmail(employee) {
     if (employee.email) {
@@ -153,6 +154,7 @@ function renderEmail(employee) {
     return ""
 }
 
+// Render GitHub in HTML if one is provided
 function renderGitHub(employee) {
     if (employee.github) {
         return `
@@ -161,6 +163,20 @@ function renderGitHub(employee) {
                     <i class="fa-brands fa-github"></i>
                     ${employee.github}
                  </a>
+            </li>`
+    }
+    return ""
+}
+
+// Render Office information in HTML if one is provided
+function renderOffice(employee) {
+    if (employee.office) {
+        return `
+            <li class="list-inline-item">
+                <a href="#">
+                    <i class="fa-solid fa-building"></i>
+                    ${employee.office}
+                </a>
             </li>`
     }
     return ""
