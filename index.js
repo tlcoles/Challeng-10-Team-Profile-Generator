@@ -127,7 +127,7 @@ function createMember (employeeData) {
                         ${renderEmail(employee)}
                         ${renderOffice(employee)}
                         ${renderGitHub(employee)}
-                        <li class="list-inline-item"><a href="#"><i class="fa-solid fa-graduation-cap"></i></a> ${employee.school}</li>
+                        ${renderSchool(employee)}
                       </ul>
             </div>
         </div>
@@ -175,14 +175,24 @@ function renderOffice(employee) {
             <li class="list-inline-item">
                 <a href="#">
                     <i class="fa-solid fa-building"></i>
-                    ${employee.office}
                 </a>
+                    ${employee.office}
             </li>`
     }
     return ""
 }
 
-// create functions for rendering office, github, school
+// Render School information in HTML if one is provided
+function renderSchool(employee) {
+    if (employee.school) {
+        return `
+            <li class="list-inline-item">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    ${employee.school}
+            </li>`
+    }
+    return ""
+}
 
 function createHTML(content) {
     let html = `<!DOCTYPE html>
